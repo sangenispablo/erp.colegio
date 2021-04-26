@@ -1,0 +1,140 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %} Aulas {% endblock %}
+
+<!-- Element injected in the BODY element -->
+{% block body_class %} {% endblock body_class %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'assets/css/adminlte.min.css' %}">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header"></section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="card">
+
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-6">
+                                        <h3 class="card-title">Aulas / Cursos</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a href="#" class="btn btn-primary float-sm-right">Nueva Aula</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <table id="grilla" class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre Completo</th>
+                                        <th>Nivel</th>
+                                        <th>Turno</th>
+                                        <th>Curso</th>
+                                        <th>División</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for aula in obj %}
+                                        <tr>
+                                            <td>{{ aula.id }}</td>
+                                            <td>{{ aula.detalle }}</td>
+                                            <td>{{ aula.nivel }}</td>
+                                            <td>{{ aula.turno }}</td>
+                                            <td>{{ aula.curso }}</td>
+                                            <td>{{ aula.division }}</td>
+                                            <td>
+                                                <a href="#"
+                                                   class="btn btn-warning btn-circle btn-sm"
+                                                   role="button">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                <a href="#"
+                                                   class="btn btn-danger btn-circle btn-sm"
+                                                   role="button">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- DataTables -->
+    <script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+    <!-- AdminLTE App -->
+    <script src="{% static 'assets/js/adminlte.min.js' %}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{% static 'assets/js/demo.js' %}"></script>
+
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#grilla').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
+{% endblock javascripts %}

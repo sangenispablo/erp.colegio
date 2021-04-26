@@ -1,0 +1,55 @@
+{% load static %}
+
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+    <!-- Opciones a la izquierda del NavBar -->
+    <ul class="navbar-nav">
+        <!-- Burger para colapsar el menu de la izquierda -->
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <!-- Dos opciones a la izquierda -->
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Contacto</a>
+        </li>
+    </ul>
+
+    <!-- Opciones a la derecha del NavBar, por ahora solamente el menu del Usuario -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Menu del Usuario en el NavBar a la derecha -->
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <!-- Imagen del Usuario por ahora voy a usar una generica para todos -->
+                <img src="{% static 'assets/img/user2-160x160.jpg' %}"
+                     class="user-image img-circle elevation-2"
+                     alt="User Image">
+                <!-- Nombre del usuario le puse que si no hay nadie logeado muestre Anonimo -->
+                <span class="d-none d-md-inline">
+                    {% if request.user.username %}
+                        {{ request.user.username }}
+                    {% else %}
+                        Anonimo
+                    {% endif %}
+                </span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- Nuevamente la misma imagen del NavBar -->
+                <li class="user-header bg-primary">
+                    <img src="{% static 'assets/img/user2-160x160.jpg' %}"
+                         class="img-circle elevation-2"
+                         alt="User Image">
+                    <p>Nombre del Usuario<small>Miembro desde Nov. 2012</small></p>
+                </li>
+                <li class="user-footer">
+                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                    <a href="{% url 'logout' %}" class="btn btn-default btn-flat float-right">Logout</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<!-- /.navbar -->

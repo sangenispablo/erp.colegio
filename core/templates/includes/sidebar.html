@@ -1,0 +1,118 @@
+{% load static %}
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <!-- Logo de la Empresa -->
+    <a href="{% url 'home' %}" class="brand-link">
+        <img src="{% static 'assets/img/HNSC-simbolo.png' %}"
+             alt="Logo Colegio"
+             class="brand-image img-circle elevation-3">
+        <span class="brand-text font-weight-light">Colegio Consolación</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar mt-3">
+
+        <!-- SidebarSearch Form si la saco no se pueden abrir las opciones multiples !!! -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar"
+                       type="search"
+                       placeholder="Search" aria-label="Buscar" disabled>
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar" disabled>
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+
+                <!-- Opción Simple en el Menu SideBar -->
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link {% if 'home' in segment %} active {% endif %}">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
+                <li class="nav-item has-treeview {% if 'tabla-' in segment %} menu-open {% endif %}">
+                    <a href="#" class="nav-link {% if 'tabla-' in segment %} active {% endif %}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>Tablas<i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'aula-list' %}"
+                               class="nav-link {% if 'tabla-aula' in segment %} active {% endif %}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Aulas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"
+                               class="nav-link {% if 'tables-alumnos' in segment %} active {% endif %}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Alumnos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"
+                               class="nav-link {% if 'tables-profesores' in segment %} active {% endif %}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Profesores</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-header">FACTURACION</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>Calendar<span class="badge badge-info right">2</span></p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>Gallery</p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-envelope"></i>
+                        <p>Mailbox<i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Inbox</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Compose</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Read</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
