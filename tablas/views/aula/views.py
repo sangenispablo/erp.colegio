@@ -48,4 +48,4 @@ class AulaListView(ListView):
 class AulaCreateView(CreateView):
     model = Aula
     form_class = AulaForm
-    template_name = ''
+    template_name = 'aula/aula_form.html'
