@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import model_to_dict
 
 
 class Nivel(models.Model):
@@ -8,6 +9,10 @@ class Nivel(models.Model):
 
     def __str__(self):
         return self.detalle
+
+    # Este metodo sirve para pasar la instancia a un Diccionario (JSON)
+    def toJSON(self):
+        return model_to_dict(self)
 
     class Meta:
         verbose_name_plural = 'niveles'
