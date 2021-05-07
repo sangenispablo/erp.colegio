@@ -119,8 +119,8 @@ USE_TZ = True
 # por defecto, si lo vamos a subir a Heroku que es lo mas documentado en los libros y videos
 # se puede usar Whitenoise para servir los archivos, lo puedo ver mas adelante
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
